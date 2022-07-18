@@ -1,0 +1,22 @@
+---
+// import  { Image }  from '@astrojs/image/components';
+// const imageUrl = 'https://picsum.photos/200/200'
+import LinkButton from '@components/LinkButton';
+
+export interface IPost{
+  id:string;
+  title:string;
+}
+
+const {id,title} = Astro.props as IPost
+---
+
+<article class="shadow-lg flex flex-col h-full rounded-md overflow-hidden dark:bg-slate-700">
+  <img src="https://picsum.photos/350/200" width={350}
+  height={200} alt="">
+  <div class="p-2 md:px-5 md:pb-5 space-y-3">
+    <h1 class="md:text-2xl">{title}</h1>
+    <p class="">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Iure dolor, placeat sed architecto excepturi velit non odio reprehenderit magnam, voluptate eligendi autem adipisci soluta eum odit quibusdam, repudiandae accusantium distinctio.</p>
+    <LinkButton href={`/post/${id}`}>もっと読む</LinkButton>
+  </div>
+</article>

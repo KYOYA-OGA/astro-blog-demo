@@ -1,13 +1,31 @@
 ---
 // Component Imports
+import LinkButton from '@components/LinkButton';
+import PostGrid from "@components/PostGrid";
 import MainLayout from "@layouts/MainLayout.astro";
+import Container from "@components/Container";
+import PostCard from "@components/PostCard.astro";
 
+// 最新記事6件を取得する
+const posts= [
+  { 'id':'1' ,'title': 'post1'},
+  {'id':'2' ,'title': 'post2'},
+  {'id':'3' ,'title': 'post3'},
+  {'id':'4' ,'title': 'post4'},
+  {'id':'5' ,'title': 'post5'},
+  {"id":'6', 'title': 'post6'},
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/core-concepts/astro-components/
+];
 ---
 
 <MainLayout>
-
+  <Container className="py-5 md:py-10">
+    <PostGrid>
+      {posts.map(post=>{
+        return <PostCard id={post.id} title={post.title} />
+      })}
+    </PostGrid>
+    <LinkButton href="/posts/1" className="w-11/12 mx-auto max-w-sm">記事をもっと探す</LinkButton>
+  </Container>
 </MainLayout>
 
