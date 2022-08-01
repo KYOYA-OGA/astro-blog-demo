@@ -16,7 +16,7 @@ const PUBLIC_FORMSPREE_URI = import.meta.env.PUBLIC_FORMSPREE_URI
           <FormInput name="email" label="メールアドレス" required />
           <FormInput name="message" label="メールアドレス" placeholder="ご用件をどうぞ..." textarea required />
           <div class="text-center">
-            <button type="submit" class="bg-blue-500 text-white py-2 px-5 rounded-lg  transition hover:brightness-110 focus:brightness-110">送信する</button>
+            <button id="submit-button" type="submit" class="bg-blue-500 text-white py-2 px-5 rounded-lg  transition hover:brightness-110 focus:brightness-110">送信する</button>
           </div>
           <p id="my-form-status" class="text-center"></p>
         </fieldset>
@@ -30,6 +30,8 @@ const PUBLIC_FORMSPREE_URI = import.meta.env.PUBLIC_FORMSPREE_URI
 
   async function handleSubmit(event) {
     event.preventDefault();
+    const submitButton = document.getElementById("submit-button");
+    submitButton.textContent = "送信中です...";
     const status = document.getElementById("my-form-status");
     const data = new FormData(event.target);
     fetch(event.target.action, {
@@ -53,6 +55,8 @@ const PUBLIC_FORMSPREE_URI = import.meta.env.PUBLIC_FORMSPREE_URI
       }
     }).catch(error => {
       status.innerHTML = "ごめんなさい。送信エラーです。"
+    }).finally(() => {
+      submitButton.textContent = "送信する"
     });
   }
   form.addEventListener("submit", handleSubmit)

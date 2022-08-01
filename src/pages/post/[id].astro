@@ -1,37 +1,40 @@
 ---
-
+import { parse } from 'node-html-parser';
+// import { Image } from '@astrojs/image/components';
 import LinkButton from '@components/LinkButton';
 import MainLayout from "@layouts/MainLayout.astro";
 import Container from "@components/Container";
+import { getAllPosts } from 'src/utils/api';
+import Data from '@utils/data.json';
+type Post = typeof Data;
 
 export async function getStaticPaths(){
-  const data = [
-  { 'id':'1' },
-  { 'id':'2' },
-  { 'id':'3' },
-  { 'id':'4' },
-  { 'id':'5' },
-  { "id":'6' },
-  { "id":'7' },
-]
-  const path = data.map(item=>{
+  const data = await getAllPosts();
+  const posts: Post[] = data.items;
+
+  return posts.map(post=>{
     return {
-      params: {
-        id: item.id
-      }
+      params: {id: post._id},
+      props: {post}
     }
   })
-  return path;
 }
-const {id} = Astro.params;
+
+const {post} = Astro.props;
+const imageUrl = post.thumbnail?.src;
+const root = parse(post.content);
 
 ---
 
 <MainLayout>
-  <Container className="py-5">
-    <div class="div">
-      ここに記事。
+  <Container className="py-5 max-w-5xl space-y-4 lg:space-y-8">
+    <h1 class="text-3xl text-center">{post.title}</h1>
+    <img src={imageUrl} alt={post.title} class="aspect-video object-cover">
+    <!-- <Image src={encodedImageUrl} width={1200} aspectRatio={16/9} /> -->
+    <div class="px-5 prose max-w-none dark:prose-invert">
+      {root}
     </div>
+
     <LinkButton href="/" className="w-11/12 mx-auto max-w-sm">ホームに戻る</LinkButton>
   </Container>
 </MainLayout>
