@@ -1,11 +1,10 @@
-# Astro with Tailwind
+# Blog site created by Astro & HeadlessCMS(Newt)
 
-```
-npm init astro -- --template with-tailwindcss
-```
+[Demo URL](https://astro-blog-demo.pages.dev/)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/with-tailwindcss)
+### Built With
 
-Astro comes with [Tailwind](https://tailwindcss.com) support out of the box. This example showcases how to style your Astro project with Tailwind.
-
-For complete setup instructions, please see our [Styling Guide](https://docs.astro.build/guides/styling#-tailwind).
+- [Astro](https://astro.build/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [tailwindcss](https://tailwindcss.com/)
+- [Newt](https://www.newt.so/)
