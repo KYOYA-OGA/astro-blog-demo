@@ -1,11 +1,11 @@
 ---
-import { parse } from 'node-html-parser';
 // import { Image } from '@astrojs/image/components';
+import Container from "@components/Container";
 import LinkButton from '@components/LinkButton';
 import MainLayout from "@layouts/MainLayout.astro";
-import Container from "@components/Container";
-import { getAllPosts } from 'src/utils/api';
 import Data from '@utils/data.json';
+import { parse } from 'node-html-parser';
+import { getAllPosts } from 'src/utils/api';
 type Post = typeof Data;
 
 export async function getStaticPaths(){
@@ -27,10 +27,10 @@ const root = parse(post.content);
 ---
 
 <MainLayout>
-  <Container className="py-5 max-w-5xl space-y-4 lg:space-y-8">
+  <Container className="py-5 max-w-5xl space-y-4 lg:space-y-8 lg:pb-20">
     <h1 class="text-3xl text-center">{post.title}</h1>
     <img src={imageUrl} alt={post.title} class="aspect-video object-cover">
-    <!-- <Image src={encodedImageUrl} width={1200} aspectRatio={16/9} /> -->
+    <!-- <Image src={imageUrl} width={1200} aspectRatio={16/9} /> -->
     <div class="px-5 prose max-w-none dark:prose-invert">
       {root}
     </div>

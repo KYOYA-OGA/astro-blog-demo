@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 
 const ThemeToggleButton: React.FC = () => {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark');
@@ -18,7 +18,7 @@ const ThemeToggleButton: React.FC = () => {
   return (
     <button
       onClick={handleThemeToggle}
-      className="text-xl md:text-2xl bg-gray-400 py-2 px-3 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
+      className="text-xl md:text-2xl bg-gray-400 p-2 lg:py-2 lg:px-3 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none"
     >
       {theme === 'light' ? '🌙' : '🌞'}
     </button>

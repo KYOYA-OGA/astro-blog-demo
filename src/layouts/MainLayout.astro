@@ -1,6 +1,6 @@
 ---
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Footer from '@components/Footer';
+import Header from '@components/Header';
 ---
 
 <html>
@@ -10,7 +10,8 @@ import Footer from '@components/Footer'
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body class="dark:bg-primary bg-slate-200 dark:text-gray-100">
-    <div class="min-h-screen flex flex-col">
+    <!-- メインの要素が足りないときにフッター下部に隙間ができるのを防ぐ -->
+    <div class="min-h-screen grid grid-rows-[auto_1fr_auto] grid-cols-[100%]">
       <Header client:load/>
       <main class="flex-1">
         <slot /> <!-- your content is injected here -->

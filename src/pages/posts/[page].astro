@@ -1,9 +1,9 @@
 ---
-import MainLayout from "@layouts/MainLayout.astro";
 import Container from "@components/Container";
+import LinkButton from '@components/LinkButton';
 import PostCard from "@components/PostCard.astro";
 import PostGrid from "@components/PostGrid";
-import LinkButton from '@components/LinkButton';
+import MainLayout from "@layouts/MainLayout.astro";
 import { getAllPosts } from "@utils/api";
 
 export async function getStaticPaths({paginate}){
@@ -24,14 +24,14 @@ const totalPageArray = new Array(page.total).fill('')
       })}
     </PostGrid>
 
-    <div class="space-y-4 md:space-y-6">
+    <div class="space-y-6">
       <p class="text-center">現在のページ：{page.currentPage} / {page.total}</p>
 
       <!--todo ページが増えた際に省略する -->
       <ul class="flex justify-center gap-x-3">
         {totalPageArray.map((_,index)=>{
           const pageNum = index + 1;
-          return <li><a href={`/posts/${pageNum}`} class={`bg-blue-500 px-3 py-2 rounded-full text-white ${pageNum === page.currentPage ? 'ring-4 ring-blue-700' : null}`}>{pageNum}</a></li>
+          return <li><a href={`/posts/${pageNum}`} class={`bg-blue-500 px-3 py-2 rounded-full text-white ${pageNum === page.currentPage ? 'ring-4 ring-blue-600' : null}`}>{pageNum}</a></li>
         })}
       </ul>
 

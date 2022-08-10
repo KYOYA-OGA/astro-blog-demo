@@ -22,7 +22,7 @@ const FormInput: React.FC<Props> = ({
         <textarea
           name={name}
           id={label}
-          class={formStyles}
+          className={formStyles}
           placeholder={placeholder}
           required={required}
         ></textarea>

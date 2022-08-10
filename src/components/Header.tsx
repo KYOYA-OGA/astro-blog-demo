@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Container from './Container';
 import ThemeToggleButton from './ThemeToggleButton';
 
 export default function Header() {
   return (
-    <header className="my-5 md:my-8">
+    <header className="py-5 md:py-5 shadow">
       <Container>
         <div className="flex items-center justify-between">
           <h2 className="text-2xl md:text-4xl font-bold tracking-tight md:tracking-tighter leading-tight">
