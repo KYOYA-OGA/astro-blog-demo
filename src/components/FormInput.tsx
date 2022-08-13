@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface Props {
   name: string;
   placeholder?: string;
@@ -8,13 +6,13 @@ interface Props {
   required?: boolean;
 }
 
-const FormInput: React.FC<Props> = ({
+export default function FormInput({
   name,
   label,
   placeholder,
   textarea,
   required,
-}) => {
+}: Props) {
   const formStyles = `bg-transparent rounded border-2 dark:border-dark-subtle border-light-subtle w-full text-lg outline-none dark:focus:border-white focus:border-primary p-1 dark:text-white peer`;
   return (
     <div className="flex flex-col-reverse">
@@ -43,6 +41,4 @@ const FormInput: React.FC<Props> = ({
       </label>
     </div>
   );
-};
-
-export default FormInput;
+}
