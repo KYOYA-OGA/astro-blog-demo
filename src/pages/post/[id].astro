@@ -22,7 +22,7 @@ export async function getStaticPaths(){
 
 const {post} = Astro.props;
 const imageUrl = post.thumbnail?.src;
-const root = parse(post.content);
+const content = parse(post.content);
 
 ---
 
@@ -31,8 +31,8 @@ const root = parse(post.content);
     <h1 class="text-3xl text-center">{post.title}</h1>
     <img src={imageUrl} alt={post.title} class="aspect-video object-cover">
     <!-- <Image src={imageUrl} width={1200} aspectRatio={16/9} /> -->
-    <div class="px-5 prose max-w-none dark:prose-invert">
-      {root}
+    <div class="px-5 prose max-w-none">
+      {content}
     </div>
 
     <LinkButton href="/" className="w-11/12 mx-auto max-w-sm">ホームに戻る</LinkButton>
