@@ -4,6 +4,7 @@ interface Props {
   label: string;
   textarea?: boolean;
   required?: boolean;
+  className?: string;
 }
 
 export default function FormInput({
@@ -12,8 +13,9 @@ export default function FormInput({
   placeholder,
   textarea,
   required,
+  className,
 }: Props) {
-  const formStyles = `bg-transparent rounded border-2 dark:border-dark-subtle border-light-subtle w-full text-lg outline-none dark:focus:border-white focus:border-primary p-1 dark:text-white peer`;
+  const formStyles = `bg-transparent rounded border-2 dark:border-dark-subtle border-light-subtle w-full text-lg outline-none dark:focus:border-white focus:border-primary p-1 dark:text-white peer ${className}`;
   return (
     <div className="flex flex-col-reverse">
       {textarea ? (
