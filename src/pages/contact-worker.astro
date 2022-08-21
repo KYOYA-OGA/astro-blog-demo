@@ -1,0 +1,27 @@
+---
+
+import Container from "@components/Container";
+import FormInput from "@components/FormInput";
+import MainLayout from "@layouts/MainLayout.astro";
+
+---
+
+<MainLayout>
+  <Container className="py-5">
+    <div class="grid place-content-center place-items-center">
+      <h2 class="py-3 text-center text-blue-600">MailChannels Pages Plugin Test</h2>
+      <form id="contact-form" method="post" data-static-form-name="contact" class="py-3 px-5 md:py-5 md:px-8 shadow dark:bg-slate-700 w-80 md:w-96">
+        <fieldset class="space-y-5">
+          <FormInput name="name" label="お名前" />
+          <FormInput name="email" label="メールアドレス" />
+          <FormInput name="message" label="メールアドレス" placeholder="ご用件をどうぞ..." textarea required className="min-h-[200px]" />
+          <div class="text-center">
+            <button id="submit-button" type="submit" class="bg-blue-500 text-white py-2 px-5 rounded-lg  transition hover:brightness-110 focus:brightness-110">送信する</button>
+          </div>
+          <p id="my-form-status" class="text-center"></p>
+        </fieldset>
+      </form>
+    </div>
+  </Container>
+</MainLayout>
+
